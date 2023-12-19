@@ -18,7 +18,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 var app = builder.Build();
 
-if (args.Length == 1 && args[0].ToLower() == "seeddate")
+if (args.Length == 1 && args[0].ToLower() == "seeddata")
     SeedData(app);
 
 void SeedData(IHost app)
@@ -28,6 +28,7 @@ void SeedData(IHost app)
     using (var scope = scopedFactory.CreateScope())
     {
         var service = scope.ServiceProvider.GetService<Seed>();
+        service.SeedDataContext();
     }
 }
 

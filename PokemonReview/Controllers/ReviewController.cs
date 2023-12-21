@@ -55,16 +55,16 @@ namespace PokemonReview.Controllers
         [HttpGet("pokemon/{pokeId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200, Type = typeof(Review))]
-        public IActionResult GetReviewsForAPokemon(int pokeId)
+        public IActionResult GetReviewsOfAPokemon(int pokeId)
         {
-            var review = _mapper.Map<ReviewDto>(_reviewRepository.GetReviewsForAPokemon(pokeId));
+            var reviews = _mapper.Map<ReviewDto>(_reviewRepository.GetReviewsOfAPokemon(pokeId));
 
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            return Ok(review);
+            return Ok(reviews);
         } 
     }
 }

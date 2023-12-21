@@ -5,7 +5,7 @@ using PokemonReview.Models;
 
 namespace PokemonReview.Repository
 {
-    public class ReviewRepository : IreviewRepository
+    public class ReviewRepository : IReviewRepository
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
@@ -14,22 +14,22 @@ namespace PokemonReview.Repository
             _context = context;
             _mapper = mapper;
         }
-        Review IreviewRepository.GetReview(int reviewId)
+        Review IReviewRepository.GetReview(int reviewId)
         {
             return _context.Reviews.Where(r => r.Id == reviewId).FirstOrDefault();
         }
 
-        ICollection<Review> IreviewRepository.GetReviews()
+        ICollection<Review> IReviewRepository.GetReviews()
         {
             return _context.Reviews.ToList();
         }
 
-        ICollection<Review> IreviewRepository.GetReviewsOfAPokemon(int pokeId)
+        ICollection<Review> IReviewRepository.GetReviewsOfAPokemon(int pokeId)
         {
             return _context.Reviews.Where(r => r.Pokemon.Id == pokeId).ToList();
         }
 
-        bool IreviewRepository.ReviewExists(int reviewId)
+        bool IReviewRepository.ReviewExists(int reviewId)
         {
             return _context.Reviews.Any(r  => r.Id == reviewId);
         }

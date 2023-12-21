@@ -2,7 +2,7 @@
 
 namespace PokemonReview.Interfaces
 {
-    public interface IreviewRepository
+    public interface IReviewRepository
     {
         ICollection<Review> GetReviews();
         Review GetReview(int reviewId);

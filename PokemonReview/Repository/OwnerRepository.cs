@@ -35,5 +35,10 @@ namespace PokemonReview.Repository
         {
             return _context.Owners.Any(o => o.Id == ownerId);
         }
+
+        IObservable<Pokemon> IOwnerRepository.GetPokemonByOwner(int ownerId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -6,6 +6,8 @@ using PokemonReview.Models;
 
 namespace PokemonReview.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class OwnerController : Controller
     {
         private readonly IOwnerRepository _ownerRepository;
